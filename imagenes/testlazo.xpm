@@ -1,0 +1,21 @@
+/* XPM */
+static char *hello_kitty_bow[] = {
+/* Width: 20, Height: 10, Colors: 4, Chars per pixel: 1 */
+"20 10 4 1",
+"R c #b3141c", /* ROJO */
+"* c #991818", /* ROJO OSCURO */
+"N c #0d0101", /* NEGRO */
+"+ c #f5b6ff", /* LILA */
+/* Diseño del lazo */
+"++NNNN+++++++++NNNN++",
+"+N****N+++++++N****N+",
+"N*RRRR*N+NNN+N*RRRR*N",
+"N*RRRRR*N*RRN*RRRRR*N",
+"N*RRRRNN*RRRRNN++++*N",
+"N*RRRN*N*RRRRN*NRRR*N",
+"N*RRRRNN**RR*NNRRRR*N",
+"N*RRRRR*N***N*RRRRR*N",
+"N*RRRR*N+NNN+N*RRRR*N",
+"+N****N+++++++N****N+",
+"++NNNN+++++++++NNNN++",
+};
