@@ -6,7 +6,7 @@
 /*   By: mivelazc <mivelazc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:52:55 by mivelazc          #+#    #+#             */
-/*   Updated: 2025/01/21 16:26:08 by mivelazc         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:19:27 by mivelazc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include "libft/libft.h"
 # include "mlx_linux/mlx.h"
+# include "get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 
 # define TAM_SPRITE 64
-# define VACIO '0'
+# define SUELO '0'
 # define MURO '1'
 # define COLECCIONABLE 'C'
 # define SALIDA 'E'
@@ -46,22 +47,27 @@ typedef struct s_sprites
 	void		*wall;
 	void		*exit;
 	void		*collectible;
-	void		*vacio;
+	void		*floor;
 }				t_sprites;
 
 // Estructura principal del juego
 typedef struct s_juego
 {
-	void		*mlx;
-	void		*ventana;
+	char		**map;
 	int			ancho;
 	int			alto;
-	t_sprites	sprites;
-	t_mapa		*mapa;
-	int			jugador_x;
-	int			jugador_y;
+	int			x;
+	int			y;
 	int			coleccionados;
 }				t_juego;
+
+typedef struct s_window
+{
+	void		*mlx;
+	void		*mlx_win;
+	t_juego		*game;
+	t_sprites	*sprite;
+}				t_window;
 
 // Prototipos de funciones
 int				inicializar_juego(t_juego *juego, const char *ruta_mapa);

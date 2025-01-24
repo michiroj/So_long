@@ -6,21 +6,21 @@
 #    By: mivelazc <mivelazc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/10 12:04:18 by mivelazc          #+#    #+#              #
-#    Updated: 2025/01/21 16:22:13 by mivelazc         ###   ########.fr        #
+#    Updated: 2025/01/23 16:32:49 by mivelazc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-SRCS = $(wildcard .c)
+SRCS = ./logica/ft_perror.c ./logica/imagen.c ./logica/main.c ./logica/mapa.c ./logica/ventana.c  ./logica/window.c
 OBJ = $(SRCS:.c=.o)
 
-MLX_DIR = so_long_lib/mlx_linux
+MLX_DIR = logica/so_long_lib/mlx_linux
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
 
-LIBFT_DIR = so_long_lib/libft
+LIBFT_DIR = logica/so_long_lib/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 RM = rm -f

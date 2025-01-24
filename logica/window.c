@@ -6,25 +6,48 @@
 /*   By: mivelazc <mivelazc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:10:07 by mivelazc          #+#    #+#             */
-/*   Updated: 2025/01/21 16:26:57 by mivelazc         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:51:35 by mivelazc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_lib/so_long_lib.h"
 
-int handle_keypress(int keycode, void *param)
+void	init_game(t_window *window, t_juego *game)
 {
-	(void)param;
-
-	if (keycode == 65307)
-		exit(0);
-	return(0);
+	window->mlx = mlx_init();
+	window->mlx_win = mlx_new_window(window->mlx, game->x * 64, game->y * 64,
+			"so_long");
 }
 
-int close_window(void *param)
+int	close_window(t_window *window)
 {
-	(void)param;
+	if (window->mlx_win)
+	{
+		mlx_clear_window(window->mlx, window->mlx_win);
+		//mlx_destroy_image(window->mlx, window->game->
+		/*(imagen que quiero eliminar));*/
+	}
+	if (window->mlx)
+	{
+		mlx_destroy_display(window->mlx);
+		free(window->mlx);
+	}
 	exit(0);
+	return (0);
+}
+
+int	load_images(t_window *window)
+{
+	window->sprite->player = mlx_xpm_file_to_image(window->mlx,
+			"imagenes/otro.xpm", &window->game->ancho, &window->game->alto);
+	window->sprite->wall = mlx_xpm_file_to_image(window->mlx,
+			"imagenes/otro.xpm", &window->game->ancho, &window->game->alto);
+	window->sprite->exit = mlx_xpm_file_to_image(window->mlx,
+			"imagenes/otro.xpm", &window->game->ancho, &window->game->alto);
+	window->sprite->collectible = mlx_xpm_file_to_image(window->mlx,
+			"imagenes/lazoHK.xpm", &window->game->ancho, &window->game->alto);
+	window->sprite->floor = mlx_xpm_file_to_image(window->mlx,
+			"imagenes/otro.xpm", &window->game->ancho, &window->game->alto);
 }
 
 /*int main()
@@ -34,11 +57,10 @@ int close_window(void *param)
 
 	mlx = mlx_init();
 	window = mlx_new_window(mlx, 1500, 800, "HELLO KITTY!");
-	
 
 	mlx_key_hook(window, handle_keypress, NULL);
 	mlx_hook(window, 17, 0, close_window, NULL);
-	
+
 	//draw()
 	
 	void	*img;
@@ -60,4 +82,12 @@ int close_window(void *param)
 	mlx_loop(mlx);
 
 	return(0);
+}*/
+
+/*int	handle_keypress(int keycode, void *param)
+{
+	(void)param;
+	if (keycode == 65307)
+		exit(0);
+	return (0);
 }*/
